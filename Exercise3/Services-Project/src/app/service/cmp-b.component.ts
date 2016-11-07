@@ -23,7 +23,7 @@ import { DataService } from './data.service';
   `,
     providers: []
 })
-export class CmpBComponent {
+export class CmpBComponent implements OnInit{
     value = '';
     items : string[] = [];
 
@@ -46,5 +46,11 @@ export class CmpBComponent {
 
     onSend(value: string) {
 
+    }
+
+    ngOnInit(){
+      this.dataService.pushedData.subscribe(
+        data => this.value = data
+      );
     }
 }
