@@ -9,16 +9,19 @@ import { Subscription } from "rxjs/Rx";
       <button (click)="onNavigate()">Go Home</button>
       <hr>
       {{id}}
+      <hr>
+
     `
 })
 export class UserComponent implements OnDestroy{
     private subscription: Subscription;
     id: string;
 
+
     constructor(private router: Router, private activatedRoute: ActivatedRoute){
-        this.subscription = activatedRoute.params.subscribe(
-            (param: any) => this.id = param['id']
-        );
+        this.subscription = activatedRoute.params.subscribe( (param: any) => {
+          this.id = param['id'];
+        });
     }
 
     onNavigate(){
