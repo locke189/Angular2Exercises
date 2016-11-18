@@ -10,7 +10,7 @@ import { Subscription } from "rxjs/Rx";
       <hr>
       {{id}}
       <hr>
-
+      <router-outlet></router-outlet>
     `
 })
 export class UserComponent implements OnDestroy{
